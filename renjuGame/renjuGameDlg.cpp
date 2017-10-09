@@ -241,6 +241,7 @@ bool CrenjuGameDlg::judgeWin(int i,int j)
 {
 	int sum = 1;
 	for (int a = 1;; a++) {
+		if (j - a < 0) break;
 		if (board[i][j - a] == act) {
 			sum++;
 			if (sum == 5) return true;
@@ -248,6 +249,7 @@ bool CrenjuGameDlg::judgeWin(int i,int j)
 		else break;
 	}
 	for (int a = 1;; a++) {
+		if (j + a >= SIZE) break;
 		if (board[i][j + a] == act) {
 			sum++;
 			if (sum == 5) return true;
@@ -256,6 +258,7 @@ bool CrenjuGameDlg::judgeWin(int i,int j)
 	}
 	sum = 1;
 	for (int a = 1;; a++) {
+		if (i - a < 0) break;
 		if (board[i-a][j] == act) {
 			sum++;
 			if (sum == 5) return true;
@@ -263,6 +266,7 @@ bool CrenjuGameDlg::judgeWin(int i,int j)
 		else break;
 	}
 	for (int a = 1;; a++) {
+		if (i + a >= SIZE) break;
 		if (board[i + a][j] == act) {
 			sum++;
 			if (sum == 5) return true;
@@ -271,6 +275,7 @@ bool CrenjuGameDlg::judgeWin(int i,int j)
 	}
 	sum = 1;
 	for (int a = 1;; a++) {
+		if (i - a < 0 || j - a < 0) break;
 		if (board[i - a][j - a] == act) {
 			sum++;
 			if (sum == 5) return true;
@@ -278,6 +283,7 @@ bool CrenjuGameDlg::judgeWin(int i,int j)
 		else break;
 	}
 	for (int a = 1;; a++) {
+		if (i + a >= SIZE || j + a >= SIZE) break;
 		if (board[i + a][j + a] == act) {
 			sum++;
 			if (sum == 5) return true;
@@ -286,6 +292,7 @@ bool CrenjuGameDlg::judgeWin(int i,int j)
 	}
 	sum = 1;
 	for (int a = 1;; a++) {
+		if (i - a < 0 || j + a >= SIZE) break;
 		if (board[i - a][j + a] == act) {
 			sum++;
 			if (sum == 5) return true;
@@ -293,6 +300,7 @@ bool CrenjuGameDlg::judgeWin(int i,int j)
 		else break;
 	}
 	for (int a = 1;; a++) {
+		if (i + a >= SIZE || j - a < 0) break;
 		if (board[i + a][j - a] == act) {
 			sum++;
 			if (sum == 5) return true;
